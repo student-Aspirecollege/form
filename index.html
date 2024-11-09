@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Contact Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        .form-container {
+            display: none; /* Initially hidden */
+            position:absolute;
+            /* top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); */
+            background-color: white;
+            padding: 20px;
+            border-radius: 18px;
+            box-shadow: 0 4px 10px rgba(7, 5, 5, 0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .form-container input,
+        .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-container button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+
+        .open-btn {
+            padding: 10px 20px;
+            background-color: blueviolet;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .open-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .form-container {
+                width: 80%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+ 
+    
+
+    <!-- Button to open form -->
+    <button class="open-btn" onclick="openForm()">Open Contact Form</button>
+
+    <!-- Contact Form -->
+    <div class="form-container" id="contactForm">
+        <h2>Hello Muzammal!</h2> 
+        <form onsubmit="validateForm()">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your name">
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email">
+            
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required placeholder="Enter the subject">
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to open the form
+        function openForm() {
+            document.getElementById("contactForm").style.display = "block";
+        }
+
+        // Form validation function
+        function validateForm() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const subject = document.getElementById("subject").value;
+            
+            if (name || email || subject) {
+                alert("Form submitted successfully!");
+                return true;
+                
+            }
+            alert("All fields are required!");
+                return false;
+           
+        }
+    </script>
+
+</body>
+</html>
